@@ -171,6 +171,14 @@ var addNewMembers = function(rsConfig, addrsToAdd) {
       host: addrToAdd
     };
 
+    if (addrToAdd.includes("-1")) {
+      cfg.arbiterOnly = true;
+      cfg.priority = 0
+    }
+    else {
+      cfg.priority = newMemberId
+    }
+
     rsConfig.members.push(cfg);
   }
 };
